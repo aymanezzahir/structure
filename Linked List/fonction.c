@@ -7,6 +7,7 @@ void remplir(cellule *p){
     scanf("%d", &x);
     (*p).value = x;
 }
+
 cellule * creer_cellule(){
     cellule * c;
     c = (cellule *)malloc(sizeof(cellule));
