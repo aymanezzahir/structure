@@ -3,7 +3,9 @@
 int main()
 {
 
-    printf("hello wolrd");
+    pile *p = cree_p();
+    remplir(p);
+    afficher_p(p);
     
     return 0;
 }
