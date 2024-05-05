@@ -1,89 +1,77 @@
 #include "fonction.h"
-#include <stdio.h>
 #include <stdlib.h>
-void remplir(cellule *p){
+#include <stdio.h>
+
+queue * cree_f(){
+    queue * f = malloc(sizeof(queue));
+
+    (*f).it = 0;
+    (*f).iq = 0;
+    return f;
+}
+int vide (queue *f) {return  (*f).it==(*f).iq ;}
+
+void supprimer(queue *f){
+    if(vide(f)){
+        printf("suppresion dans queue vide non define");
+        exit(EXIT_FAILURE);
+    }
+
+    (*f).it++ ;
+    
+}
+
+int valeur (queue *f){
+    if(vide(f)){
+        printf("valuer non definie\n");
+        exit(EXIT_FAILURE);
+    }
+    return (*f).T[(*f).it + 1];
+}
+
+void ajouter(queue *f , int val){
+    (*f).iq ++;
+    if((*f).iq < N){
+        (*f).T[(*f).iq] = val;
+        return ;
+    }
+    printf("stack overflow !");
+    exit(EXIT_FAILURE);
+}
+
+void remplir(queue *f){
     int x;
-    printf("donner un entier : ");
+    printf("\ndonner moi la nombre des elements de ce pile ne dépasse pas 100 : ");
+
     scanf("%d", &x);
-    (*p).value = x;
-}
-cellule * creer_cellule(){
-    cellule * c;
-    c = (cellule *)malloc(sizeof(cellule));
-    c->next = (cellule *) NULL;
-    c->prev = (cellule *) NULL;
-    return c;
-}
-int vide (cellule *p) {return (p==NULL);}
 
-void afficher_list(cellule *list){
-    cellule *p = list;
-    while (p != NULL)
+    while (x > N){
+        printf("max 100 : ");
+        scanf("%d", &x);
+    }
+   int i =0;
+    while (x--){
+         i++;
+        int val;
+        printf("T[%d] : " ,  i );
+        scanf("%d" , &val);
+        ajouter(f , val);
+    }
+}
+
+void afficher_f(queue *f){
+    queue * f2 = cree_f();
+    printf("\n\t");
+    while (!vide(f))
     {
-        printf("%d" , (p)->value);p=p->next;
+        printf("%d\t" , valeur(f));
+        ajouter(f2 , valeur(f));
+        supprimer(f);
     }
-    printf("\n");
+   
+    f = f2;
+    free(f2);
+
 }
 
-void afficher_list_reverse(cellule *list){
-    cellule *p = list;
-    while (p->next != NULL)
-    {
-        p=p->next;
-    }
 
-    while (p->prev != NULL)
-    {
-        printf("%d" , (p)->value);p=p->prev;
-    }
-    printf("\n");
-}
-
-cellule * inserer_debut(cellule *list , cellule *c){
-    if(list == NULL) return c;
-    c->next = list;
-    list->prev = c;
-    list = c; // for make pointer in head of list
-    return list;
-}
-cellule * inserer_fin(cellule *list , cellule *c){
-    cellule *p = list;
-    while(p->next != NULL)    p = p->next;
-    p->next = c;
-    c->prev = p;
-
-    return list;
-}
-
-cellule supprimer_valeur(cellule *list , int value){
-    cellule *p = list;
-
-    // the loop will stop in two case : 
-    // 1) if value it exists in list
-    // 2) if p = null
-    while((p != NULL) && ((*p).value) !=value ){
-        p = p->next;
-    }
-
-    // if list is null or pointer reach the end of list then don't find the value
-    if(p==NULL){
-        printf("non trouve");
-    }else{
-
-        // if we find the value in begin of list
-        if((p->prev) !=NULL){
-            p->prev->next = p->next;
-
-            if(p->next !=NULL){
-                p->next->prev = p->prev;
-            }
-        }else{
-            list = list->next;
-
-            if(list != NULL){
-                list->prev = NULL;
-            }
-
-        }
-    }
-}
