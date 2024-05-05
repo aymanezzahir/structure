@@ -10,7 +10,7 @@ Ce dépôt fournit un espace de travail pour que les étudiants puissent pratiqu
    ```
 2. changer le repertoires (pour exemple "pile") :
    ```bash
-   cd Pile
+   cd Stack
    ```
 3. Compiler :
    ```bash

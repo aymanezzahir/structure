@@ -56,8 +56,6 @@ void remplir(pile *p){
         scanf("%d" , &val);
         ajouter(p , val);
     }
-
-    
 }
 
 void afficher_p(pile *p){

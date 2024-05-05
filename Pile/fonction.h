@@ -19,7 +19,6 @@ typedef struct {
 //          |    2    |    
 //          -----------
 
-
 pile * cree_p();
 int vide (pile *);
 void remplir(pile *);
