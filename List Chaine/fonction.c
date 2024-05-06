@@ -20,9 +20,10 @@ void afficher_list(cellule *list){
     cellule *p = list;
     while (p != NULL)
     {
-        printf("%d" , (p)->value);p=p->next;
+        printf("\t%d\t -> " , (p)->value);p=p->next;
     }
-    printf("\n");
+    
+    printf("\tNULL\n");
 }
 cellule * inserer_debut(cellule *list , cellule *c){
     c->next = list;
