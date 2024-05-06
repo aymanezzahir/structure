@@ -1,21 +1,25 @@
-typedef struct cellule{
-    int value;
-    struct cellule * next;
-    struct cellule * prev;
-} cellule;
+#define N 100
+typedef struct {
+    int it;
+    int iq;
+    int T[N];
+} queue;
+// je nomme ce structure queue car il y'a autre structure en C appele FILE (fichier)
 
-//          une cellule
-//         _________________________________________________________
-//         |                  |                 |                  |
-//         |      prev        |  value          |     next         |
-//         |__________________|_________________|__________________|
+//          une file
+//                      
+//                      
+//        =====================================              
+//                            
+//   ===>      10     34    53      54     42    =====>
 //
-//
-cellule * creer_cellule();
-int vide (cellule *);
-void remplir(cellule *);
-void afficher_list(cellule *);
-cellule * inserer_debut(cellule * , cellule *);
-cellule * inserer_fin(cellule * , cellule *);
-cellule supprimer_valeur(cellule * , int );
-void afficher_list_reverse(cellule *);
+//        =====================================
+
+
+queue * cree_f();
+int vide (queue *);
+void remplir(queue *);
+void afficher_f(queue *);
+void ajouter(queue * , int );
+int valeur(queue *);
+void supprimer(queue * );
