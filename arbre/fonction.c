@@ -36,15 +36,14 @@ char *ind_pere(char *s, sommet fils, sommet frere, valeur val)
 {
     int i, t;
 
-    // pour deternimer l'index de fils 
+    // pour deternimer l'index de fils
     for (i = 1; i < N; i++)
         if (!strcmp(s, val[i]))
         {
             t = i;
             break;
         }
-    
-    
+
     int pere = -1;
 
     // dans ce cas le pere est le racine
@@ -55,7 +54,6 @@ char *ind_pere(char *s, sommet fils, sommet frere, valeur val)
         getchar();
         exit(0);
     }
-
 
     while (pere == -1)
     {
@@ -69,4 +67,16 @@ char *ind_pere(char *s, sommet fils, sommet frere, valeur val)
                 t = i;
     }
     return val[pere];
+}
+
+void preordre(int s, sommet fils, sommet frere, valeur val)
+{
+    int t;
+    printf(" %s", val[s]);
+    t = fils[s];
+    while (t != -1)
+    {
+        preordre(t, fils, frere, val);
+        t = frere[t];
+    }
 }

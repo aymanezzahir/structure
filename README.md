@@ -4,6 +4,7 @@ Ce dépôt fournit un espace de travail pour que les étudiants puissent pratiqu
 
 ## Utilisation
 
+   ### Entrez votre code dans les fichiers main.c situés dans chaque répertoire
 1. Cloner le dépôt :
    ```bash
    git clone https://github.com/aymanezzahir/structure.git
