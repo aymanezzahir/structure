@@ -79,4 +79,4 @@ void preordre(int s, sommet fils, sommet frere, valeur val)
         preordre(t, fils, frere, val);
         t = frere[t];
     }
-}
+} 
