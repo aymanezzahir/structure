@@ -14,8 +14,9 @@ Ce dépôt fournit un espace de travail pour que les étudiants puissent pratiqu
    ```
 3. Compiler :
    ```bash
-   gcc -o main.c function.c program
-   
+   gcc  main.c fonction.c program
+   ```
+   ```bash
    # window
    .\program.exe
    
